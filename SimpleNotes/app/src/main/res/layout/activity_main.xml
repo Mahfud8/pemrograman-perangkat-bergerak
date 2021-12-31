@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/txtjudul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Catatan : username"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambah catatan"
+        android:onClick="addNotes"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#D32F2F"
+        android:onClick="logOut"
+        android:text="Logout" />
+
+    <TextView
+        android:id="@+id/txtShowNotes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Isi Text Notes"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

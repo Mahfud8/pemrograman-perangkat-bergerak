@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Kalkulator Android</string>
+    <string name="kalkulator_key">Kalkulatorkey</string>
+    <string name="hasil_hitung">hasilHitung</string>
+</resources>
