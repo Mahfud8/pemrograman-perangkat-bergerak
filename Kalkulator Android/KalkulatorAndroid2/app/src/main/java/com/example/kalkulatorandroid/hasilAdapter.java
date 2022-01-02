@@ -12,31 +12,33 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class hasilAdapter extends RecyclerView.Adapter<hasilAdapter.ViewHolder> {
-    private ArrayList<Hasil> hasilList;
+    private List<Hasil> hasilList;
 
-    public hasilAdapter(ArrayList<Hasil> hasilList) {
+
+    public hasilAdapter(List<Hasil> hasilList) {
         this.hasilList = hasilList;
     }
+
 
     @NonNull
     @Override
     public hasilAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        ViewHolder holder =new ViewHolder(inflater.inflate(R.layout.item_hitung, parent, false));
+        ViewHolder holder =new hasilAdapter.ViewHolder(inflater.inflate(R.layout.item_hitung, parent, false));
 
         return holder ;
     }
 
     @Override
     public void onBindViewHolder(@NonNull final hasilAdapter.ViewHolder holder, int position) {
-        final Hasil hasil = hasilList.get(position);
+        Hasil hasil = hasilList.get(position);
         holder.txtriwayat.setText(hasil.hasil);
 
-        holder.constraintLayout.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 //Toast.makeText(holder.constraintLayout.getContext(), hasil.getHasil(),Toast.LENGTH_LONG).show();
@@ -46,7 +48,10 @@ public class hasilAdapter extends RecyclerView.Adapter<hasilAdapter.ViewHolder> 
                 builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        itemCliked.delete(hasil);
+                        AppDatabase db = AppDatabase.getDatabase(view.getContext());
+                        HasilDAO hasilDAO = db.hasilDAO();
+                        hasilDAO.deleteHasil(hasil);
+                        hasilList.get(position);
                     }
                 });
                 builder.setNegativeButton("Batal", new DialogInterface.OnClickListener() {
@@ -59,17 +64,13 @@ public class hasilAdapter extends RecyclerView.Adapter<hasilAdapter.ViewHolder> 
                 return true;
             }
         });
+    }
 
-    }
-    public interface itemCliked {
-        void delete(Hasil hasil);
-    }
 
     @Override
     public int getItemCount() {
        return hasilList.size();
     }
-
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -83,4 +84,6 @@ public class hasilAdapter extends RecyclerView.Adapter<hasilAdapter.ViewHolder> 
             constraintLayout = (ConstraintLayout) itemView.findViewById(R.id.linearLayout);
         }
     }
+
+
 }

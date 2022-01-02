@@ -9,12 +9,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements hasilAdapter.itemCliked {
+public class MainActivity extends AppCompatActivity {
 
     EditText editangka1, editangka2;
     RadioButton rbtambah, rbkurang, rbkali, rbbagi;
@@ -31,12 +32,21 @@ public class MainActivity extends AppCompatActivity implements hasilAdapter.item
         setContentView(R.layout.activity_main);
 
         initData();
-
+        hasilList = new ArrayList<>();
+        db = AppDatabase.getDatabase(getApplicationContext());
         adapter = new hasilAdapter(hasilList);
         recHasil.setAdapter(adapter);
         recHasil.setLayoutManager(new LinearLayoutManager(this));
+        recHasil.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
-        db = AppDatabase.getDatabase(getApplicationContext());
+        hasilViewModel = new ViewModelProvider(this).get(HasilViewModel.class);
+
+        hasilViewModel.getAllHasil().observe(this, hasils -> {
+            hasilList.clear();
+            hasilList.addAll(hasils);
+            adapter.notifyDataSetChanged();
+        });
+
     }
 
     private void initData() {
@@ -84,16 +94,8 @@ public class MainActivity extends AppCompatActivity implements hasilAdapter.item
         Operasi();
         String string = txthasil.getText().toString();
 
-        final Hasil hasil = new Hasil(string);
+        Hasil hasil = new Hasil(string);
 
-        hasilViewModel = new ViewModelProvider(this).get(HasilViewModel.class);
         hasilViewModel.insert(hasil);
     }
-
-    @Override
-    public void delete(Hasil hasil){
-        hasilViewModel.delete(hasil);
-
-    }
-
 }

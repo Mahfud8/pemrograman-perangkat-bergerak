@@ -15,8 +15,8 @@ public interface HasilDAO {
     LiveData<List<Hasil>> getAllhasil();
 
     @Insert
-    void insert(Hasil hasil);
+    void insertHasil(Hasil hasil);
 
     @Delete
-    void delete(Hasil hasil);
+    void deleteHasil(Hasil hasil);
 }

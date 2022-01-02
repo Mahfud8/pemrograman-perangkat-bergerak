@@ -11,12 +11,12 @@ import java.util.List;
 public class HasilViewModel extends AndroidViewModel {
 
     HasilRepository hasilRepository;
-    LiveData<List<Hasil>> hasilList;
+    LiveData<List<Hasil>> AllHasil;
 
     public HasilViewModel(@NonNull Application application) {
         super(application);
         hasilRepository = new HasilRepository(application);
-        hasilList = hasilRepository.getAllHasil();
+        AllHasil = hasilRepository.getAllHasil();
     }
 
     public LiveData<List<Hasil>> getAllHasil(){

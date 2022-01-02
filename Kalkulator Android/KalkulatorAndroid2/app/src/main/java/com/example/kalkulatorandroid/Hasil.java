@@ -1,5 +1,6 @@
 package com.example.kalkulatorandroid;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -19,6 +20,7 @@ public class Hasil implements Serializable {
         this.hasil = hasil;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return this.hasil;
