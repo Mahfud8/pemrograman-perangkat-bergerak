@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">Catat Uangku</string>
-    <string name="share_key">CatatUangkukey</string>
-    <string name="username_key">Username</string>
-    <string name="notes_key">Noteskey</string>
 </resources>

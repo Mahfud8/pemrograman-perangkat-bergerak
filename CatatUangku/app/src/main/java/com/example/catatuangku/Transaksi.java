@@ -1,25 +1,35 @@
 package com.example.catatuangku;
 
-public class Transaksi {
-    private String keterangan, nominal;
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-    public Transaksi(String keterangan, String nominal) {
+import java.io.Serializable;
+
+@Entity(tableName = "transaksi")
+public class Transaksi implements Serializable {
+    @PrimaryKey(autoGenerate = true)
+    public int uid;
+    @ColumnInfo
+    public String keterangan;
+    @ColumnInfo
+    public int nominal;
+    @ColumnInfo
+    public String opsi;
+    @ColumnInfo
+    public String waktu;
+
+    public Transaksi(String keterangan, int nominal, String opsi, String waktu) {
         this.keterangan = keterangan;
         this.nominal = nominal;
+        this.opsi = opsi;
+        this.waktu = waktu;
 
     }
-
-    public String getKeterangan(){
-        return keterangan;
+    @NonNull
+    @Override
+    public String toString(){
+        return this.keterangan + this.nominal + this.opsi + this.waktu;
     }
-    public void setKeterangan(String keterangan){
-        this.keterangan = keterangan;
-    }
-    public String getNominal(){
-        return nominal;
-    }
-    public void setNominal(String Nominal){
-        this.nominal = nominal;
-    }
-
 }

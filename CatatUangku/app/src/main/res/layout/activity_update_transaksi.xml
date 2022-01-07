@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".UpdateTransaksi">
+
+    <RadioGroup
+        android:id="@+id/radioGroupUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbpendapatan"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="#2196F3"
+            android:text="Pendapatan"
+            android:textColor="#4CAF50"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/rbpengeluaran"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="#2196F3"
+            android:text="Pengeluaran"
+            android:textColor="#F44336"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Nominal"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edtNominal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="20"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Keterangan"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edtKeterangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="100"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Tanggal"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+
+    <EditText
+        android:id="@+id/edtDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="time" />
+
+    <Button
+        android:id="@+id/btnupdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#5B70DF"
+        android:onClick="Update"
+        android:text="Update"
+        android:textAllCaps="false"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btndalete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#9C554F"
+        android:onClick="Delete"
+        android:text="Delete"
+        android:textAllCaps="false"
+        android:textSize="18sp" />
+
+</LinearLayout>

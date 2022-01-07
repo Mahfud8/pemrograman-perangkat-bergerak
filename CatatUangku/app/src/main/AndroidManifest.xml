@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CatatUangku">
         <activity
-            android:name=".NewTransaction"
+            android:name=".UpdateTransaksi"
+            android:exported="true" />
+        <activity
+            android:name=".NewTransaksi"
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
@@ -23,7 +26,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
